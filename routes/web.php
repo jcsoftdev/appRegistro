@@ -1,10 +1,12 @@
 <?php
 
 
-
 Route::get('/', function () {
-    return view('vistas/contenido');
+    return view('contents.contenido');
 });
+// Route::get('/', function () {
+//     return view('vistas/contenido');
+// });
 Route::get('/docente', 'HomeController@docente')->name('docente');
 Route::get('/estudiante', 'HomeController@estudiante')->name('estudiante');
 //Route::get('/regUsuario', 'HomeController@usuario')->name('regUsuario');
@@ -22,7 +24,7 @@ Route::post('/regArapoderado', 'apoderadosController@store');
 
 Auth::routes();
 // Authentication Routes...
-/*Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
@@ -42,6 +44,6 @@ if ($options['reset'] ?? true) {
 // Email Verification Routes...
 if ($options['verify'] ?? false) {
     Route::emailVerification();
-}*/
+}
 
 Route::get('/home', 'HomeController@index')->name('home');
