@@ -11,25 +11,38 @@
     <link rel="stylesheet" href="./assets/css/plantilla.css">
     <link rel="stylesheet" href="assets/css/plantilla.css">
     <link rel="stylesheet" href="./css/app.css">
-    
+    <script src="./js/plantillahead.js"></script>
   </head>
+ 
   <body>
-        <div class="container">
-          <div id="app">
-            
-            @component('componentes.header')
-            @endcomponent
-            @yield('contenido')
 
-          </div>
+    <div id="app">
+        <div class="header-bg">
+            <!-- Navigation Bar-->
+            <header id="topnav">
+                @include('componentes.topnav')
+                <!-- end topbar-main -->
+                @include('componentes.header')
+            </header>
+            <!-- End Navigation Bar-->
+            <div class="wrapper">
 
+                <div class="container-fluid">
 
-
-          @component('componentes.footer')
-          @endcomponent
+                    @yield('contenido')
+                </div>
+            </div>
         </div>
+        
 
-        <script src="./js/plantilla.js"></script>
-        <script src="./js/app.js"></script>
-      </body>
+
+        @include('componentes.footer')
+    </div>
+    
+    <!-- App js -->
+    <script src="./js/app.js"></script>
+    <!-- plantilla  -->
+        {{-- <script>$().DataTable();</script> --}}
+    <script src="./js/plantilla.js"></script>
+</body>
 </html>
