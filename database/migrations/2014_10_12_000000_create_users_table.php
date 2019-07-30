@@ -13,8 +13,8 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuarios', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('users', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('name');
             $table->string('apellidos');
             $table->string('email',100)->unique();
@@ -37,6 +37,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('users');
     }
 }

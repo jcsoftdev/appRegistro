@@ -15,8 +15,8 @@ class CreatePersonasapoderadosTable extends Migration
     {
         Schema::create('personasapoderados', function (Blueprint $table) {
             $table->integer('id')->unsigned();
-            $table->foreign('id')->references('id')->on('personas')->onDelete('cascade');
-
+            
+            $table->foreign('id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('id_apoderado')->unsigned();
             $table->foreign('id_apoderado')->references('id')->on('apoderados');
         });

@@ -17,7 +17,7 @@ class CreateAsistenciasTable extends Migration
             $table->bigIncrements('id');
             
             $table->integer('id_persona')->unsigned();
-            $table->foreign('id_persona')->references('id')->on('personas')->onDelete('cascade');
+            $table->foreign('id_persona')->references('id')->on('users')->onDelete('cascade');
             
             $table->integer('id_curso')->unsigned();
             $table->foreign('id_curso')->references('id')->on('cursos')->onDelete('cascade');
