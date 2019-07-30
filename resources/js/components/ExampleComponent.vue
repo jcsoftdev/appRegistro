@@ -16,8 +16,36 @@
 
 <script>
     export default {
+        data(){
+            return {
+                nombre: '',
+                descripcion:'',
+                arrarUser:[]
+            }
+        },
+        methods : {
+            // listarUsuarios(){
+                
+            //     let me = this;
+            //     axios.get('/usuario')
+            //     .then(function (response) {
+            //         // handle success
+            //         me.arrarUser=response.data;
+            //         console.log(me.arrarUser);
+            //     })
+            //     .catch(function (error) {
+            //         // handle error
+            //         console.log(error);
+            //     })
+            //     .finally(function () {
+            //         // always executed
+            //     });
+
+            // }
+        },
         mounted() {
-            console.log('Component mounted.')
+            // this.listarUsuarios();
+            // $().DataTable();
         }
     }
 </script>

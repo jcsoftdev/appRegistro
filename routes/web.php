@@ -3,7 +3,7 @@
 
 
 Route::get('/', function () {
-    return view('index');
+    return view('vistas/contenido');
 });
 Route::get('/docente', 'HomeController@docente')->name('docente');
 Route::get('/estudiante', 'HomeController@estudiante')->name('estudiante');

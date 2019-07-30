@@ -1,84 +1,84 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" >
-              <div class="container">
-                  <a class="text-primary" href="/home"><h2><strong>FIS-UNCP</strong></h2></a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                      <span class="navbar-toggler-icon"></span>
-                  </button>
-
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <!-- Left Side Of Navbar -->
-                      <ul class="navbar-nav mr-auto">
-
-                      </ul>
-
-                      <!-- Right Side Of Navbar -->
-                      <ul class="navbar-nav ml-auto">
-                          <!-- Authentication Links -->
-                          @guest
-                              <li class="nav-item">
-                                  <!--<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>-->
-                              </li>
-                              @if (Route::has('register'))
-                                  <li class="nav-item">
-                                      <!--<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>-->
-                                  </li>
-                              @endif
-                          @else
-                              <li class="nav-item dropdown">
-                                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                      {{ Auth::user()->name }} <span class="caret"></span>
-                                  </a>
-
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                      <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                      document.getElementById('logout-form').submit();">
-                                          {{ __('Cerrar Sesión') }}
-                                      </a>
-
-                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                          @csrf
-                                      </form>
-                                  </div>
-                              </li>
-                          @endguest
-                      </ul>
-                  </div>
-              </div>
-          </nav>
 
 
-<header>
-
-    <ul class="nav nav-tabs">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Registrar Asistencia</a>
-            <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{ route('docente') }}">Docente</a>
-            <a class="dropdown-item" href="{{ route('estudiante') }}">Estudiante</a>
-            
-            </div>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Consultar Asistencia</a>
-            <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Docente</a>
-            <a class="dropdown-item" href="#">Estudiante</a>
-            </div>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gestionar</a>
-            <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{ route('regApoderado') }}">Registrar Apoderado</a>
-            <a class="dropdown-item" href="{{ route('register') }}">Registrar Usuario</a>
-            <a class="dropdown-item" href="#">Editar Apoderado</a>
-            <a class="dropdown-item" href="#">Editar Usuario</a>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Horario</a>
-        </li>
-    </ul>
     
-</header>
+
+<!-- MENU Start -->
+<div class="navbar-custom">
+    <div class="container-fluid">
+
+        <div id="navigation">
+
+            <!-- Navigation Menu-->
+            <ul class="navigation-menu">
+
+                <li @click="menu=0" class="has-submenu">
+                    <a href="#"><i class="icon-accelerator"></i> Escritorio</a>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#"><i class="icon-todolist-check"></i> Registrar asistencia <i class="mdi mdi-chevron-down mdi-drop"></i></a>
+                    <ul class="submenu">
+                        <li @click="menu=1">
+                            <a href="#"><i class="icon-todolist-add mr-2"></i>Docente</a>
+                        </li>
+                        <li @click="menu=2">
+                            <a href="#"><i class="icon-todolist-add mr-2"></i>Alumno</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#"><i class="icon-life-buoy"></i> Consultar Asistencia <i class="mdi mdi-chevron-down mdi-drop"></i></a>
+                    <ul class="submenu">
+                        <li @click="menu=3">
+                           <a href="#"> Docente </a>
+                        </li>
+
+                        <li @click="menu=4">
+                           <a href="#"> Estudiante </a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                <li class="has-submenu">
+                    <a href="#"><i class="icon-diamond"></i> Gestionar <i class="mdi mdi-chevron-down mdi-drop"></i></a>
+                    <ul class="submenu megamenu">
+
+                        <li @click="menu=5">
+                            <a href="#"> Registrar Persona </a>
+                        </li>
+                        <li @click="menu=6">
+                           <a href="#">  Registrar Docente</a>
+                        </li>
+                        <li @click="menu=7">
+                           <a href="#"> Registrar Estudiante </a>
+                        </li>
+                        <li @click="menu=8">
+                           <a href="#"> Registrar Apoderado </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#"><i class="icon-paper-sheet"></i> Horario <i class="mdi mdi-chevron-down mdi-drop"></i></a>
+                    <ul class="submenu">
+                        <li @click="menu=9">
+                           <a href="#"> Docentes </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!-- End navigation menu -->
+        </div>
+        <!-- end #navigation -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end navbar-custom -->
+
+
 
