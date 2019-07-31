@@ -22,7 +22,7 @@ class CodigoController extends Controller
     public function insertarCodigo($idcurso){
         $a = 0;
         $buscar[] = '';
-        $buscar[] = Cupon::select('codigos.serial')->get();
+        $buscar[] = Codigo::select('codigos.serial')->get();
         while ($a < 1) {
             $codigo = $this->crearCodigo();
             $buscar[] = $codigo;
@@ -38,34 +38,58 @@ class CodigoController extends Controller
                 $a ++;
             }
         } 
+
     }
-    public function actualizar(Request $request){
-        //  if (!$request->ajax()) return redirect('/');
-        $meses = $request->meses;
-        try{
-            DB::beginTransaction();
-            //Actualizar la table cupones
-            DB::table('cupons')
-            ->where('id_curso', $idCurso)
-            ->update([
-                'serial' => $this->crearCodigo()
-                
-                ]);
-            DB::commit();
-        } catch (Exception $e){
-            DB::rollBack();
+    public function refrescar(Request $id_Curso, $estado){
+        //Refrescar la tablar de codigos
+        
+        while ($estado) {
+            try{
+                DB::beginTransaction();
+                DB::table('cupons')
+                ->where('id_curso', $id_Curso)
+                ->update([
+                    'serial' => $this->crearCodigo()
+                    ]);
+                    DB::commit();
+            } catch (Exception $e){
+                DB::rollBack();
+            }
+            sleep(5);
         }
+        
     }
-    public function refrescarQR(Request $refresco){
-        $id_curso = Cupon::select('serial')->where('id_curso', $idCurso)
-            ->update([
-                'condicion' => 1,
-                'actualizaciones' => DB::raw('actualizaciones + 1'),
-                'expiracion'=> Carbon::now()->addMonths($meses)
+
+
+    // Para poner en registrar asistencia 
+    // public function refrescar($id_Curso){
+    //     while ($activo) {
+            
+    //         try{
+    //         DB::beginTransaction();
+    //         //Actualizar la table cupones
+    //         DB::table('cupons')
+    //         ->where('id_curso', $id_Curso)
+    //         ->update([
+    //             'serial' => $this->crearCodigo()
+    //             ]);
+    //         DB::commit();
+    //     } catch (Exception $e){
+    //         DB::rollBack();
+    //     }
+    //     }
+        
+    // }
+    // public function refrescarQR(Request $refresco){
+    //     $id_curso = Cupon::select('serial')->where('id_curso', $idCurso)
+    //         ->update([
+    //             'condicion' => 1,
+    //             'actualizaciones' => DB::raw('actualizaciones + 1'),
+    //             'expiracion'=> Carbon::now()->addMonths($meses)
                 
-                ]);;
-        while ($refresco) {
-            # code...
-        }
-    }
+    //             ]);;
+    //     while ($refresco) {
+    //         # code...
+    //     }
+    // }
 }

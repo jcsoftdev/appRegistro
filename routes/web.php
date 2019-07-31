@@ -7,6 +7,8 @@ Route::get('/', function () {
 // Route::get('/', function () {
 //     return view('vistas/contenido');
 // });
+Route::get('/curso', 'CursoController@index');
+
 Route::get('/docente', 'HomeController@docente')->name('docente');
 Route::get('/estudiante', 'HomeController@estudiante')->name('estudiante');
 //Route::get('/regUsuario', 'HomeController@usuario')->name('regUsuario');
