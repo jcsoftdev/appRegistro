@@ -5,8 +5,8 @@
                     <div class="">
                         <a href="/" class="logo">
                             
-                            <i class="mdi mdi-camera-control"></i><span class="">ASISTENCIA FIS</span>
-                                <span class="d-none d-sm-inline logo-light text-fis">
+                            <span class="d-none d-sm-inline logo-light text-fis">
+                                    <i class="mdi mdi-camera-control"></i><span class="">ASISTENCIA FIS</span>
                             </span>
                             <span class="d-sm-none d-inline logo-light text-fis">
                                     <i class="mdi mdi-camera-control"></i><span class="">FIS</span>

@@ -1,7 +1,5 @@
 <template>
   <div>
-    <!-- <span class="text-center" v-text="$store.state.cursos[$store.state.menu]" ></span> -->
-        <!-- <p class="alert-success text-center" v-text="'Curso de '+$store.state.menu">$store.state.menu</p> -->
         <h1 class="text-center">Registre su asistencia</h1>
         <div class="d-flex flex-column align-items-center text-center justify-content-center">
             <div class="container-fluid mt-1">
