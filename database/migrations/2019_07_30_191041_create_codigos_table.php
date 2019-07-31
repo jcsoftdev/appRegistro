@@ -14,7 +14,12 @@ class CreateCodigosTable extends Migration
     public function up()
     {
         Schema::create('codigos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            // $table->bigIncrements('id');
+            $table->string('serial');
+            
+            $table->integer('id_curso')->unsigned();
+            $table->foreign('id_curso')->references('id')->on('cursos')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }
