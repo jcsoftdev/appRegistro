@@ -2,7 +2,7 @@
 
 @section('contenido')
     <template v-if="$store.state.menu==0">
-        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis adipisci, recusandae, amet quam asperiores quis laudantium voluptate itaque, sunt sequi. Atque expedita enim, odit ab corporis itaque veniam recusandae? 0</h1>
+        <h1>Pantalla Principal</h1>
     </template>
     <template v-if="$store.state.menu==1">
         <marcar-asistencia-component></marcar-asistencia-component>
@@ -33,6 +33,7 @@
     </template>
     <template v-if="$store.state.menu>=101">
         {{-- <h1>Contenido Curso <span v-text="$store.state.menu"></span></h1> --}}
+        <generar-asistencia-alumno-component></generar-asistencia-alumno-component>
     </template>
     
             

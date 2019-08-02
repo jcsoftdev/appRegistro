@@ -7,22 +7,29 @@ Route::get('/', function () {
 // Route::get('/', function () {
 //     return view('vistas/contenido');
 // });
+Route::post('/insertarCodigo', 'CodigoController@insertarCodigo');
+Route::post('/refCodigo', 'CodigoController@insertarCodigo');
 Route::get('/curso', 'CursoController@index');
+
+Route::get('/codigo', "CodigoController@index");
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/docente', 'HomeController@docente')->name('docente');
 Route::get('/estudiante', 'HomeController@estudiante')->name('estudiante');
 //Route::get('/regUsuario', 'HomeController@usuario')->name('regUsuario');
 
-
 Route::get('/regArapoderado', 'HomeController@showRegApoderado')->name('regApoderado');
 Route::post('/regArapoderado', 'apoderadosController@store');
-
-//ejem
-/*Route::get('/datos', function () {
-    $datos= RegistroAsistencia\Models\apoderado::all();
-    //return view('index');
-});
-*/
 
 Auth::routes();
 // Authentication Routes...

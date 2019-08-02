@@ -34,19 +34,34 @@ Vue.component('generar-asistencia-alumno-component', require('./components/Gener
  */
 // import Vuex from 'vuex';
 
-
 const store = new Vuex.Store({
-    state:{
+    state: {
         menu: 0,
-        cursos: []
+        cursos: [],
+        codigo: ''
+    },
+    mutations: {
+        increment(state) {
+            state.count++
+        },
+        incrementBy(state, payload) {
+            state.count += payload.amount
+        }
     }
 });
+import { mapState, mapMutations } from 'vuex';
 const app = new Vue({
     el: '#app',
     store:store,
     data: {
         menuCurso : 0
-    }
-
+    },
+    computed: mapState([
+        'count'
+    ]),
+    methods: mapMutations([
+        'increment',
+        'incrementBy'
+    ])
 });
 

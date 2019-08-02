@@ -34,7 +34,7 @@
                     me.arrayCurso=response.data;
                     me.$store.state.cursos=response.data;
                     // console.log(me.arrayCurso);
-                    console.log(me.$store.state.cursos);
+                    // console.log(me.$store.state.cursos);
                 })
                 .catch(function (error) {
                     // handle error

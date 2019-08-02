@@ -15,12 +15,12 @@ class CreateCodigosTable extends Migration
     {
         Schema::create('codigos', function (Blueprint $table) {
             // $table->bigIncrements('id');
-            $table->string('serial');
-            
             $table->integer('id_curso')->unsigned();
             $table->foreign('id_curso')->references('id')->on('cursos')->onDelete('cascade');
+            $table->string('serial');
             
-            $table->timestamps();
+            
+            // $table->timestamps();
         });
     }
 
